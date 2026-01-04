@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <h1>boyfriend.studio</h1>
+      <h1>introjections.com</h1>
       <p>Live.</p>
     </main>
   )
