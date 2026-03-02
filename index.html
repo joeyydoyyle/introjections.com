@@ -15,18 +15,62 @@
         top: 300px;
         left: 50%;
         transform: translateX(-50%);
+        width: 640px;
       }
 
       video {
         display: block;
+        width: 640px;
+      }
+
+      .controls {
+        position: relative;
+        width: 640px;
+        margin-top: 80px;
+      }
+
+      .controls button {
+        position: absolute;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      #btn-play {
+        left: 20px;
+      }
+
+      #btn-pause {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #btn-rewatch {
+        right: 20px;
       }
     </style>
   </head>
   <body>
     <div class="video-container">
-      <video controls width="640">
+      <video id="player" width="640">
         <source src="" type="video/mp4" />
       </video>
+      <div class="controls">
+        <button id="btn-play">PLAY</button>
+        <button id="btn-pause">PAUSE</button>
+        <button id="btn-rewatch">REWATCH</button>
+      </div>
     </div>
+    <script>
+      const video = document.getElementById("player");
+      document.getElementById("btn-play").addEventListener("click", () => video.play());
+      document.getElementById("btn-pause").addEventListener("click", () => video.pause());
+      document.getElementById("btn-rewatch").addEventListener("click", () => {
+        video.currentTime = 0;
+        video.play();
+      });
+    </script>
   </body>
 </html>
